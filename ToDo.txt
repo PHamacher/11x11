@@ -1,0 +1,9 @@
+bug: às vezes jogador some/embola
+pegar escalações automaticamente
+usuário editar escalações (ocultar times?)
+11x11, dataframe
+output dos scores mais bonitinho
+salvar resultados
+só executar resultados com botão?
+outras ligas
+cores nas caixinhas pra saber o time do jogador
