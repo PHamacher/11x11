@@ -7,22 +7,26 @@ dict_teams = {'Fluminense': ['Fabio', 'Samuel Xavier', 'Thiago Silva', 'Ignacio'
                 'Botafogo': ['John', 'Vitinho', 'Danilo Barbosa', 'A. Barboza', 'Alex Telles', 'Gregore', 'Marlon Freitas', 'Newton', 'Savarino', 'Igor Jesus', 'Matheus Martins', 'C. Caçapa'], # Santiago Rodriguez
                 'Santos': ['João Paulo', 'JP Chermont', 'Gil', 'Zé Ivaldo', 'G. Escobar', 'João Schmidt', 'Thaciano', 'Neymar', 'Soteldo', 'Tiquinho', 'Guilherme', 'Pedro Caixinha'], # Leo Godoy, Barreal, Luan Peres, Veron, G.Bontempo
                 'Palmeiras': ['Weverton', 'Marcos Rocha', 'Gustavo Gomez', 'Murilo', 'Vanderlan', 'E. Martínez', 'Richard Ríos', 'R. Veiga', 'Estêvão', 'V. Roque', 'Facundo Torres', 'Abel Ferreira'],
-                'Corinthians': ['Hugo S.', 'Matheuzinho', 'Félix Torres', 'Gustavo Henrique', 'M. Bidu', 'J. Martínez', 'Breno Bidon', 'Garro', 'Carrillo', 'Yuri Alberto', 'Depay', 'Ramon Díaz'], # AndréRamalho/Tchoca/Cacá, Anglieri
-                'São Paulo': ['Rafael', 'Cedric', 'Arboleda', 'Alan Franco', 'Enzo Díaz', 'Alisson', 'Marcos Antônio', 'Luciano', 'Lucas Moura', 'Calleri', 'Oscar', 'Zubeldia'],
+                'Corinthians': ['Hugo S.', 'Matheuzinho F.', 'Félix Torres', 'Gustavo Henrique', 'M. Bidu', 'J. Martínez', 'Breno Bidon', 'Garro', 'Carrillo', 'Yuri Alberto', 'Depay', 'Ramon Díaz'], # AndréRamalho/Tchoca/Cacá, Anglieri
+                'São Paulo': ['Rafael', 'Cedric', 'Arboleda', 'Alan J. Franco', 'Enzo Díaz', 'Alisson', 'Marcos Antônio', 'Luciano', 'Lucas Moura', 'Calleri', 'Oscar', 'Zubeldia'],
                 'Grêmio': ['Volpi', 'João Pedro', 'Jemerson', 'Wagner Leonardo', 'Lucas Esteves', 'Cuéllar', 'Villasanti', 'Cristaldo', 'C. Olivera', 'Braithwaite', 'Monsalve', 'G. Quinteros'],
-                'Inter': ['Rochet', 'B. Aguirre', 'Vitão', 'Victor Gabriel', 'Bernabei', 'Fernando', 'Bruno Henrique', 'Alan Patrick', 'Wanderson', 'Borré', 'Wesley', 'Roger Machado'], # Thiago Maia, Bruno Tabata, Vitinho, E. Valencia
+                'Inter': ['Rochet', 'B. Aguirre', 'Vitão', 'Victor Gabriel', 'Bernabei', 'Fernando', 'Bruno Henrique C.', 'Alan Patrick', 'Wanderson', 'Borré', 'Wesley R.', 'Roger Machado'], # Thiago Maia, Bruno Tabata, Vitinho, E. Valencia
                 'Cruzeiro': ['Cássio', 'William', 'Fabricio Bruno', 'Jonathan Jesus', 'Kaiki', 'Lucas Romero', 'Eduardo', 'Matheus Henrique', 'Kaio Jorge', 'Gabigol', 'Dudu', 'Leonardo Jardim'],
                 'Atlético-MG': ['Everson', 'Natanael', 'Lyanco', 'Junior Alonso', 'Arana', 'Alan Franco', 'G. Menino', 'G. Scarpa', 'Rony', 'Hulk', 'Cuello', 'Cuca'],
                 'Bahia': ['Marcos Felipe', 'Gilberto', 'Gabriel Xavier', 'Kanu', 'S. Mingo', 'Caio Alexandre', 'Jean Lucas', 'Éverton Ribeiro', 'Ademir', 'L. Rodríguez', 'Erick Pulga', 'Rogério Ceni'],
                 'Vitória': ['Lucas Arcanjo', 'R. Cáceres', 'Neris', 'L. Halter', 'Jamerson', 'Willian Oliveira', 'Baralhas', 'Matheuzinho', 'W. Rato', 'Carlinhos', 'Lucas Braga', 'Carpini'],
                 'Fortaleza': ['João Ricardo', 'Mancuso', 'David Luiz', 'Kuscevic', 'Bruno Pacheco', 'Zé Welison', 'G. Fernández', 'Pochettino', 'Marinho', 'Lucero', 'Moisés', 'Vojvoda'],
-                'Ceará': ['Bruno Ferreira', 'Dieguinho', 'Marllon', 'Ramon', 'M. Bahia', 'Richardson', 'F. Sobral', 'Lucas Mugni', 'Pedro Henrique', 'Aylon', 'Fernandinho', 'Léo Condé'],
+                'Ceará': ['Bruno Ferreira', 'Dieguinho', 'Marllon', 'Ramon', 'M. Bahia', 'Richardson', 'F. Sobral', 'Lucas Mugni', 'Pedro Henrique K.', 'Aylon', 'Fernandinho', 'Léo Condé'],
                 'Juventude': ['Gustavo', 'Ewerton', 'Abner', 'Adriano Martins', 'M. Paulo', 'Giraldo', 'Jádson', 'Jean Carlos', 'Batalla', 'Erick Farias', 'Ênio', 'Fábio Matias'],
                 'Bragantino': ['Cleiton', 'Hurtado', 'Eduardo S.', 'Pedro Henrique', 'Juninho Capixaba', 'Gabriel', 'Matheus Fernandes', 'Lucas Evangelista', 'Helinho', 'Pitta', 'Vinicinho', 'Fernando Seabra'],
                 'Sport': ['Caique França', 'Di Plácido', 'Antônio Carlos', 'João Silva', 'Igor Cariús', 'Sergio Oliveira', 'F. Domínguez', 'Atencio', 'C. Barletta', 'Pablo', 'Romarinho', 'Pepa'],
                 'Mirassol': ['Muralha', 'Lucas Ramon', 'J. Victor', 'A. Empereur', 'Daniel Borges', 'Danielzinho', 'José Aldo', 'Gabriel Jamal', 'Negueba', 'Iury Castilho', 'Chico Kim', 'Ivan Baitello'],
 }
 # lesionados: Pedro, Pablo Maia, Ganso, Adson, David
+
+all_players = [el for v in dict_teams.values() for el in v]
+repeated = set([el for el in all_players if all_players.count(el) > 1])
+assert len(repeated) == 0, f"Repeated players: {repeated}"
 
 players = [{'header': 'Goleiros', 'items': [squad[0] for squad in dict_teams.values()]}, {'header': 'Laterais Direitos', 'items': [squad[1] for squad in dict_teams.values()]},
          {'header': 'Zagueiros Direitos', 'items': [squad[2] for squad in dict_teams.values()]}, {'header': 'Zagueiros Esquerdos', 'items': [squad[3] for squad in dict_teams.values()]},

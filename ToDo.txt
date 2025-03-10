@@ -1,4 +1,3 @@
-bug: às vezes jogador some/embola
 pegar escalações automaticamente
 usuário editar escalações (ocultar times?)
 11x11, dataframe
@@ -7,3 +6,4 @@ salvar resultados
 só executar resultados com botão?
 outras ligas
 cores nas caixinhas pra saber o time do jogador
+comparador entre times (e do próprio time)
