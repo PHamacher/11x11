@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_sortables import sort_items
+import pandas as pd
 
 dict_teams = {'Fluminense': ['Fabio', 'Samuel Xavier', 'Thiago Silva', 'Ignacio', 'Fuentes', 'Otávio', 'Martinelli', 'Serna', 'Arias', 'Cano', 'Canobbio', 'Mano Menezes'],
                 'Flamengo': ['Rossi', 'Wesley', 'Leo Ortiz', 'Leo Pereira', 'Alex Sandro', 'Pulgar', 'Gerson', 'Arrascaeta', 'Plata', 'Bruno Henrique', 'Michael', 'Filipe Luis'],
@@ -34,17 +35,78 @@ players = [{'header': 'Goleiros', 'items': [squad[0] for squad in dict_teams.val
             {'header': '2º volante', 'items': [squad[6] for squad in dict_teams.values()]}, {'header': 'Meias Ofensivos', 'items': [squad[7] for squad in dict_teams.values()]},
             {'header': 'Pontas Direitas', 'items': [squad[8] for squad in dict_teams.values()]}, {'header': 'Centroavantes', 'items': [squad[9] for squad in dict_teams.values()]},
             {'header': 'Pontas Esquerdas', 'items': [squad[10] for squad in dict_teams.values()]}, {'header': 'Técnicos', 'items': [squad[11] for squad in dict_teams.values()]}]
-           
 
 sorted_items = sort_items(players, direction="vertical", multi_containers=True)
 
 scores = {}
+teams_rnk = {}
 for team in dict_teams.keys():
     scores[team] = 0
+    teams_rnk[team] = []
 
 for team in scores.keys():
     for i,player in enumerate(dict_teams[team]):
         ranking = sorted_items[i]["items"].index(player)
         scores[team] += len(scores) - ranking
+        teams_rnk[team].append(ranking)
 
-st.write(scores)
+def show_team(team):
+    for i in range(12):
+        st.write(f"{dict_teams[team][i]} - {teams_rnk[team][i]+1}º em sua posição")
+
+def duel(team1, team2, print_=False):
+    s1, s2 = 0, 0
+    for i in range(12):
+        if teams_rnk[team1][i] < teams_rnk[team2][i]:
+            s1 += 1
+            if print_:
+                st.write(f"{dict_teams[team1][i]} > {dict_teams[team2][i]}\t{team1} {s1} x {s2} {team2}")
+        else:
+            s2 += 1
+            if print_:
+                st.write(f"{dict_teams[team2][i]} > {dict_teams[team1][i]}\t{team1} {s1} x {s2} {team2}")
+    if print_:
+        st.divider()
+        st.write(f"{team1} {s1} x {s2} {team2}")
+    return s1, s2
+
+def league():
+    league_table = pd.DataFrame("", index=dict_teams.keys(), columns=[k for k in dict_teams.keys()])
+    league_table['Vitórias'] = 0
+    league_table['Empates'] = 0
+    league_table['Derrotas'] = 0
+    league_table['Score'] = scores.values()
+
+    for team1 in dict_teams.keys():
+        for team2 in dict_teams.keys():
+            if team1 != team2:
+                s1, s2 = duel(team1, team2)
+                league_table.loc[team1, team2] = f"{s1}x{s2}"
+                league_table.loc[team2, team1] = f"{s2}x{s1}"
+                if s1 > s2:
+                    league_table.loc[team1, 'Vitórias'] += 1
+                    league_table.loc[team2, 'Derrotas'] += 1
+                elif s1 < s2:
+                    league_table.loc[team2, 'Vitórias'] += 1
+                    league_table.loc[team1, 'Derrotas'] += 1
+                else:
+                    league_table.loc[team1, 'Empates'] += 1
+                    league_table.loc[team2, 'Empates'] += 1
+            else:
+                league_table.loc[team1, team2] = "-"
+
+    league_table = league_table.sort_values('Vitórias', ascending=False)
+    print(league_table)
+    return league_table
+
+with st.expander("Tabela de classificação"):
+    st.dataframe(league())
+
+with st.expander("Exibir uma equipe"):
+    shown_team = st.selectbox("Time", list(dict_teams.keys()))
+    show_team(shown_team)
+
+with st.expander("Confronto entre duas equipes"):
+    duel_teams = st.multiselect("Escolha dois times", list(dict_teams.keys()))
+    if len(duel_teams) == 2:
+        duel(duel_teams[0], duel_teams[1], print_=True)
