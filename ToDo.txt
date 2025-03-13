@@ -1,9 +1,6 @@
 pegar escalações automaticamente
-usuário editar escalações (ocultar times?)
-11x11, dataframe
-output dos scores mais bonitinho
-salvar resultados
-só executar resultados com botão?
+usuário editar escalações
+melhorar design do output (ex: duelo entre times)
+salvar resultados -> Session State?
 outras ligas
-cores nas caixinhas pra saber o time do jogador
-comparador entre times (e do próprio time)
+cores nas caixinhas pra saber o time do jogador?

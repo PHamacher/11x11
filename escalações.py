@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_sortables import sort_items
 import pandas as pd
 
-dict_teams = {'Fluminense': ['Fabio', 'Samuel Xavier', 'Thiago Silva', 'Ignacio', 'Fuentes', 'Otávio', 'Martinelli', 'Serna', 'Arias', 'Cano', 'Canobbio', 'Mano Menezes'],
+dict_teams_all = {'Fluminense': ['Fabio', 'Samuel Xavier', 'Thiago Silva', 'Ignacio', 'Fuentes', 'Otávio', 'Martinelli', 'Serna', 'Arias', 'Cano', 'Canobbio', 'Mano Menezes'],
                 'Flamengo': ['Rossi', 'Wesley', 'Leo Ortiz', 'Leo Pereira', 'Alex Sandro', 'Pulgar', 'Gerson', 'Arrascaeta', 'Plata', 'Bruno Henrique', 'Michael', 'Filipe Luis'],
                 'Vasco': ['Leo Jardim', 'Paulo Henrique', 'João Victor', 'Lucas Freitas', 'L. Piton', 'Hugo Moura', 'Jair', 'Coutinho', 'Rayan', 'Vegetti', 'Nuno Moreira', 'Carille'], # Lemos, Cocão/Paulinho, Tchê Tchê, Loide/Garré
                 'Botafogo': ['John', 'Vitinho', 'Danilo Barbosa', 'A. Barboza', 'Alex Telles', 'Gregore', 'Marlon Freitas', 'Newton', 'Savarino', 'Igor Jesus', 'Matheus Martins', 'C. Caçapa'], # Santiago Rodriguez
@@ -25,9 +25,18 @@ dict_teams = {'Fluminense': ['Fabio', 'Samuel Xavier', 'Thiago Silva', 'Ignacio'
 }
 # lesionados: Pedro, Pablo Maia, Ganso, Adson, David
 
-all_players = [el for v in dict_teams.values() for el in v]
+all_players = [el for v in dict_teams_all.values() for el in v]
 repeated = set([el for el in all_players if all_players.count(el) > 1])
 assert len(repeated) == 0, f"Repeated players: {repeated}"
+
+dict_leagues = {'Brasileirão': ['Fluminense', 'Flamengo', 'Vasco', 'Botafogo', 'Santos', 'Palmeiras', 'Corinthians', 'São Paulo', 'Grêmio', 'Inter', 'Cruzeiro', 'Atlético-MG', 'Bahia', 'Vitória', 'Fortaleza', 'Ceará', 'Juventude', 'Bragantino', 'Sport', 'Mirassol']}
+
+leagues = st.multiselect('Selecione as ligas', list(dict_leagues.keys()), default=['Brasileirão'])
+
+for league in leagues:
+    with st.expander(f'Selecione os times de {league}'):
+        selected_teams = st.multiselect('Selecione os times', dict_leagues[league], default=dict_leagues[league])
+        dict_teams = {team: dict_teams_all[team] for team in selected_teams}
 
 players = [{'header': 'Goleiros', 'items': [squad[0] for squad in dict_teams.values()]}, {'header': 'Laterais Direitos', 'items': [squad[1] for squad in dict_teams.values()]},
          {'header': 'Zagueiros Direitos', 'items': [squad[2] for squad in dict_teams.values()]}, {'header': 'Zagueiros Esquerdos', 'items': [squad[3] for squad in dict_teams.values()]},
